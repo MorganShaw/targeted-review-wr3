@@ -12,6 +12,16 @@ const Nav = (props) => {
       props.history.push("/");
     }
   }, [props.user.email, props.location.pathname]);
+  
+  // useAsyncEffect(async () => {
+  //   const data = await fetch(`/users/${id}`).then(res => res.json());
+  //   if (!isMounted()) return;
+  //   setUser(data);
+  // }, [id]);
+
+  //see the info in this site:
+  // https://github.com/rauldeheer/use-async-effect
+
 
   return (
     <h1>
@@ -24,9 +34,8 @@ const Nav = (props) => {
   );
 };
 
-const mapStateToProps = (reduxState) => {
+const mapStateToProps = (reduxState) => reduxState;
   //# whatever we return here gets put on props
-  return reduxState;
-};
+  
 
 export default connect(mapStateToProps, { getUser })(withRouter(Nav));

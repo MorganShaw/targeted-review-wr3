@@ -19,7 +19,7 @@ module.exports = {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password, salt);
       const newUser = await db.user.add_user([email, hash]);
-
+//maybe delete user here? When would we need this? 
       req.session.user = newUser[0];
       res.status(201).send(newUser[0]);
     }
