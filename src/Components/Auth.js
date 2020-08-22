@@ -39,6 +39,7 @@ const Auth = (props) => {
       })
       .then((res) => {
         props.getUser();
+        //should this be registerUser? or loginUser?
         props.history.push("/dash");
       })
       .catch((err) => {
